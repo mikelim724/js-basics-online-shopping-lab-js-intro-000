@@ -50,23 +50,31 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  var ifthere = false;
-  var index;
+  var ifthere = false; //Check if there is item in cart
+  var index; //Check spot in cart the item is in
   for (var i = 0; i < cart.length; i++) {
     if (item===cart[i].itemName) {
-      ifthere = true;
+      ifthere = true; //Go through the cart of items. If matching item, make statment true and record the index of it in the cart.
       index = i;
     }
   }
-  if (ifthere===true) {
-    cart.splice(index, 1);
+  if (ifthere===true) { //If item is in cart, remove it using splice and return updated cart.
+    cart.splice(index, 1); //Remove 1 item at the index value
     return cart
   }
-  else {
+  else { //If no item return this message
     return "That item is not in your cart."
   }
 }
 
 function placeOrder(cardNumber) {
   // write your code here
+  if (cardNumber===undefined) {
+    return "Sorry we don't have a credit card on file for you."
+  }
+  else {
+    var sum= total();
+    cart = [];
+    return `Your total cost is ${sum}, which will be charged to the card ${cardNumber}.`
+  }
 }
