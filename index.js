@@ -51,7 +51,7 @@ function total() {
 function removeFromCart(item) {
   // write your code here
   var ifthere = false;
-  var index; 
+  var index;
   for (var i = 0; i < cart.length; i++) {
     if (item===cart[i].itemName) {
       ifthere = true;
